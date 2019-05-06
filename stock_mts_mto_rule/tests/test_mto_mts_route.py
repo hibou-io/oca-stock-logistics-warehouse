@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import exceptions
@@ -98,7 +97,9 @@ class TestMtoMtsRoute(TransactionCase):
             ('location_src_id', '=', self.warehouse.lot_stock_id.id),
             ('route_id', '=', self.warehouse.delivery_route_id.id),
         ])
-        self.env.cr.execute('UPDATE stock_move SET rule_id = NULL WHERE rule_id IN %s', (tuple(rules.ids), ))
+        self.env.cr.execute(
+            'UPDATE stock_move SET rule_id = NULL WHERE rule_id IN %s',
+            (tuple(rules.ids), ))
         self.warehouse.mts_mto_rule_id = False
         self.warehouse.mto_mts_management = True
         self.assertTrue(self.warehouse.mts_mto_rule_id)
