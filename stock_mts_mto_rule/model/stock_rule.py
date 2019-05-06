@@ -4,15 +4,15 @@ from odoo import models, api, fields, _
 from odoo.exceptions import UserError
 
 
-class ProcurementRule(models.Model):
-    _inherit = 'procurement.rule'
+class StockRule(models.Model):
+    _inherit = 'stock.rule'
 
     action = fields.Selection(
         selection_add=[('split_procurement', 'Choose between MTS and MTO')])
     mts_rule_id = fields.Many2one(
-        'procurement.rule', string="MTS Rule")
+        'stock.rule', string="MTS Rule")
     mto_rule_id = fields.Many2one(
-        'procurement.rule', string="MTO Rule")
+        'stock.rule', string="MTO Rule")
 
     @api.constrains('action', 'mts_rule_id', 'mto_rule_id')
     def _check_mts_mto_rule(self):
