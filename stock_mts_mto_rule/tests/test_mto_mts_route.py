@@ -130,7 +130,7 @@ class TestMtoMtsRoute(TransactionCase):
         self.assertFalse(warehouse_rule.active)
 
     def test_get_all_routes_for_wh(self):
-        routes = self.warehouse.get_all_routes_for_wh()
+        routes = self.warehouse._get_all_routes()
         self.assertTrue(self.warehouse.mts_mto_rule_id)
         self.assertTrue(self.warehouse.mts_mto_rule_id.route_id in routes)
 

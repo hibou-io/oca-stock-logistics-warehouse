@@ -1,7 +1,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import models, fields
-from odoo.tools.translate import _
+from odoo import fields, models, _
 
 
 class StockWarehouse(models.Model):
@@ -19,7 +18,6 @@ class StockWarehouse(models.Model):
         routes = super(StockWarehouse, self)._get_all_routes()
         routes |= self.mapped('mts_mto_rule_id.route_id')
         return routes
-    get_all_routes_for_wh = _get_all_routes
 
     def _update_name_and_code(self, new_name=False, new_code=False):
         res = super(StockWarehouse, self)._update_name_and_code(new_name,

@@ -73,6 +73,7 @@ Contributors
 ------------
 
 * Florian da Costa <florian.dacosta@akretion.com>
+* Jared Kipe <jared@hibou.io>
 
 Do not contact contributors directly about support or help with technical issues.
 
